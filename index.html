@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mallika Samanu — Data Analyst</title>
+  <meta name="description"
+    content="Mallika Samanu — Data Analyst. Interactive dashboards in Looker Studio and Power BI, Python, SQL, and machine learning in Microsoft Fabric.">
+  <style>
+    :root {
+      --purple: #4B34C4;
+      --purple-dk: #33228C;
+      --lime: #C6F23C;
+      --ink: #1E1B3A;
+      --grey: #6b6b7b;
+      --light: #f4f3fb;
+      --card: #ffffff;
+      --line: #e7e4f6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--light);
+      line-height: 1.6
+    }
+
+    a {
+      color: var(--purple);
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    .wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 20px
+    }
+
+    /* nav */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, .95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line);
+      z-index: 10
+    }
+
+    nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px
+    }
+
+    nav .brand {
+      font-weight: 700;
+      color: var(--purple);
+      font-size: 18px
+    }
+
+    nav .links a {
+      margin-left: 20px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 600
+    }
+
+    nav .links a:hover {
+      color: var(--purple);
+      text-decoration: none
+    }
+
+    @media(max-width:640px) {
+      nav .links a {
+        margin-left: 12px;
+        font-size: 13px
+      }
+    }
+
+    /* hero */
+    header.hero {
+      background: linear-gradient(135deg, var(--purple), var(--purple-dk));
+      color: #fff;
+      padding: 70px 0 60px
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 800;
+      letter-spacing: -.5px
+    }
+
+    .hero .role {
+      color: var(--lime);
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 6px
+    }
+
+    .hero p {
+      color: #ddd7f7;
+      max-width: 720px;
+      margin-top: 16px;
+      font-size: 17px
+    }
+
+    .hero .cta {
+      margin-top: 26px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px
+    }
+
+    .btn.primary {
+      background: var(--lime);
+      color: var(--ink)
+    }
+
+    .btn.ghost {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255, 255, 255, .6)
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      opacity: .92
+    }
+
+    /* sections */
+    section {
+      padding: 54px 0
+    }
+
+    section h2 {
+      font-size: 28px;
+      color: var(--purple);
+      margin-bottom: 6px
+    }
+
+    section .sub {
+      color: var(--grey);
+      margin-bottom: 26px
+    }
+
+    .lead {
+      font-size: 17px;
+      max-width: 820px
+    }
+
+    /* skills */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px
+    }
+
+    .chip {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 7px 14px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--ink)
+    }
+
+    .skillgrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      margin-top: 10px
+    }
+
+    .skillcard {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px
+    }
+
+    .skillcard h4 {
+      color: var(--purple);
+      font-size: 15px;
+      margin-bottom: 6px
+    }
+
+    .skillcard p {
+      font-size: 14px;
+      color: var(--ink)
+    }
+
+    /* projects */
+    .project {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 10px rgba(30, 27, 58, .04)
+    }
+
+    .project .tag {
+      display: inline-block;
+      background: var(--light);
+      color: var(--purple);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 10px
+    }
+
+    .project h3 {
+      font-size: 20px;
+      margin-bottom: 8px
+    }
+
+    .project ul {
+      margin: 10px 0 0 18px
+    }
+
+    .project li {
+      margin-bottom: 6px;
+      font-size: 15px
+    }
+
+    .project .stack {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--grey)
+    }
+
+    .project img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      margin: 14px 0
+    }
+
+    .note {
+      font-size: 12.5px;
+      color: var(--grey);
+      font-style: italic
+    }
+
+    /* contact */
+    .contact {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 28px;
+      text-align: center
+    }
+
+    .contact a {
+      font-weight: 700
+    }
+
+    footer {
+      background: var(--ink);
+      color: #cfc9ec;
+      text-align: center;
+      padding: 22px;
+      font-size: 13px
+    }
+
+    .accent {
+      height: 5px;
+      background: var(--lime)
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="wrap">
+      <span class="brand">Mallika Samanu</span>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <h1>Mallika Samanu</h1>
+      <div class="role">Data Analyst</div>
+      <p>I turn messy data into clear, usable insights. My strength is building interactive dashboards in Looker Studio
+        and Power BI that make complex data easy to understand.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View my work</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/mallika-samanu-00ba9817a" target="_blank"
+          rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/MallikaSamanu" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </header>
+  <div class="accent"></div>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>About me</h2>
+      <p class="lead">I started my career in embedded testing, which gave me a careful, detail-focused way of working,
+        and I moved into data analytics through the Mission Ready Level 6 programme. I enjoy the practical side of data:
+        making numbers accurate and traceable, and designing dashboards people actually use. I'm currently open to Data
+        Analyst / BI Analyst opportunities.</p>
+    </div>
+  </section>
+
+  <section id="skills" style="background:#efedfb">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <p class="sub">The tools and methods I work with.</p>
+      <div class="skillgrid">
+        <div class="skillcard">
+          <h4>Dashboards & Reporting</h4>
+          <p>Power BI, Looker Studio</p>
+        </div>
+        <div class="skillcard">
+          <h4>Data Cleaning & Modelling</h4>
+          <p>SQL, Advanced Excel, Power Query, Google Sheets</p>
+        </div>
+        <div class="skillcard">
+          <h4>Programming & Analysis</h4>
+          <p>Python (pandas, NumPy, Matplotlib), Exploratory Data Analysis (EDA)</p>
+        </div>
+        <div class="skillcard">
+          <h4>Machine Learning</h4>
+          <p>Regression, classification, clustering, time-series forecasting (Microsoft Fabric)</p>
+        </div>
+        <div class="skillcard">
+          <h4>Core Strengths</h4>
+          <p>Clear communication, attention to detail, problem-solving, reliability, collaboration</p>
+        </div>
+      </div>
+      <div class="chips">
+        <span class="chip">Power BI</span><span class="chip">Looker Studio</span><span class="chip">Python</span>
+        <span class="chip">SQL</span><span class="chip">Microsoft Fabric</span>
+        <span class="chip">Power Query</span><span class="chip">Excel</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <p class="sub">Selected work from my internship and Level 6 programme.</p>
+
+      <div class="project">
+        <span class="tag">Internship · Buzzly</span>
+        <h3>Buzzly Challenge Insights — Interactive Dashboard + Automation</h3>
+        <img src="dashboard.png" alt="Buzzly Challenge Insights dashboard — participation page in Looker Studio">
+        <p class="note">Shared with permission from Buzzly.</p>
+        <ul>
+          <li>Replaced static PDF reports with an interactive, auto-refreshing Looker Studio dashboard, reusable across
+            every challenge through one build (challenge selector), responsive on desktop, tablet, and mobile.</li>
+          <li>Automated the data pipeline in Google Apps Script with an AI-assisted, human-reviewed workflow, cutting
+            reporting from hours of manual work to a 2–3 minute repeatable process.</li>
+          <li>Cleaned and modelled survey data (gender, age groups, multi-select ethnicity) and reconciled displayed
+            figures against the source reports for accuracy.</li>
+        </ul>
+        <div class="stack">Tools: Looker Studio · Google Apps Script · Gemini AI · Excel Power Query · Google Sheets
+        </div>
+      </div>
+
+      <div class="project">
+        <span class="tag">Machine Learning · Microsoft Fabric</span>
+        <h3>Bank Customer Churn Prediction (Classification)</h3>
+        <ul>
+          <li>Built an end-to-end ML workflow to predict which customers are likely to leave, from EDA to evaluation.
+          </li>
+          <li>Compared Logistic Regression and tuned Random Forest models (100–300 estimators).</li>
+          <li>Prepared features (encoding, scaling) and evaluated with accuracy and predicted-vs-actual comparison.</li>
+        </ul>
+        <div class="stack">Tools: Microsoft Fabric · Python · pandas</div>
+      </div>
+
+      <div class="project">
+        <span class="tag">Machine Learning · Microsoft Fabric</span>
+        <h3>Uber Trip Price Prediction (Regression)</h3>
+        <ul>
+          <li>Modelled trip price from distance, duration, time of day, traffic, and weather.</li>
+          <li>Compared Multiple Linear Regression and a Random Forest Regressor, evaluated with RMSE.</li>
+          <li>Showed how a Random Forest captures non-linear patterns a linear model misses.</li>
+        </ul>
+        <div class="stack">Tools: Microsoft Fabric · Python · Matplotlib / Seaborn</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="background:#efedfb">
+    <div class="wrap">
+      <h2>Get in touch</h2>
+      <p class="sub">Open to Data Analyst / BI Analyst opportunities.</p>
+      <div class="contact">
+        <p>📧 <a href="mailto:mallika.samanu@gmail.com">mallika.samanu@gmail.com</a></p>
+        <p>🔗 <a href="https://www.linkedin.com/in/mallika-samanu-00ba9817a" target="_blank" rel="noopener">LinkedIn</a>
+          &nbsp;·&nbsp; 💻 <a href="https://github.com/MallikaSamanu" target="_blank" rel="noopener">GitHub</a></p>
+        <p>📍 Auckland, New Zealand</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="yr"></span> Mallika Samanu · Built with HTML & CSS · Hosted on GitHub Pages
+  </footer>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>
